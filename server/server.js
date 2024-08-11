@@ -36,6 +36,8 @@ app.use(cors({
   // allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
+connectDB();
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());

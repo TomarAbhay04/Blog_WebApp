@@ -32,21 +32,22 @@ export const AuthProvider = ({ children }) => {
 
   const loginUser = async (credentials) => {
     console.log('Login credentials:', credentials);
-
-    try {
+  
+    try {                                
       const response = await axios.post('https://blog-webapp-2rak.onrender.com/api/auth/login', credentials);
       console.log('Login response from backend:', response.data);
-
+  
       if (response.data.token) {
         setUser(response.data.user);
         setToken(response.data.token);
-        localStorage.setItem('token',JSON.stringify(response.data.token)); // Save token to localStorage
+        localStorage.setItem('token', JSON.stringify(response.data.token)); // Save token to localStorage
         console.log('Token stored in localStorage:', response.data.token);
         localStorage.setItem('user', JSON.stringify(response.data.user));
         console.log('User data stored in localStorage:', response.data.user);
       }
     } catch (error) {
-      console.error('Login error:', error.response?.data || error.message);
+      // Log detailed error information
+      console.error('Login error:', error.response ? error.response.data : error.message);
       throw error;
     }
   };
