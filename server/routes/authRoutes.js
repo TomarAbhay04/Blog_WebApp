@@ -8,7 +8,7 @@ router.post('/register', registerUser);
 
 router.post('/login', loginUser);
 
-router.get('/protected', authMiddleware, (req, res) => {
+router.get('/', authMiddleware, (req, res) => {
     res.send('Welcome to protected route');
 });
 
