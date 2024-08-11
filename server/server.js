@@ -31,7 +31,7 @@ app.get('*', (req, res) => {
 
 // Other middleware and routes
 app.use(cors({
-  origin: 'https://your-frontend-url.com', // Replace with your actual frontend URL
+  origin: 'https://blog-webapp-frontend.onrender.com', // Replace with your actual frontend URL
   credentials: true,
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
