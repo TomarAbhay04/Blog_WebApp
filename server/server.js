@@ -64,6 +64,11 @@ app.use('/api/auth', authRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/posts', postRoutes);
 
+app.use((req, res, next) => {
+  console.log(`Request URL: ${req.url}`);
+  next();
+});
+
 // Serve static files from the React app's dist directory
 app.use(express.static(path.join(__dirname, 'frontend', 'dist')));
 
