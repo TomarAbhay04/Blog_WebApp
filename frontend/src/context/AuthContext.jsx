@@ -6,6 +6,7 @@ export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [token, setToken] = useState(null);
 
   useEffect(() => {
     const storedUser = localStorage.getItem('user');
@@ -34,6 +35,8 @@ export const AuthProvider = ({ children }) => {
 
       if (response.data.token) {
         setUser(response.data.user);
+        // localStorage.setItem('token', JSON.stringify(response.data.token)); // Save token to localStorage
+        // console.log('Token stored in localStorage:', response.data.token);
         localStorage.setItem('user', JSON.stringify(response.data.user));
         console.log('User data stored in localStorage:', response.data.user);
       }

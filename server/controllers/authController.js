@@ -36,7 +36,7 @@ export const registerUser = async (req, res) => {
             payload,
             process.env.JWT_SECRET,
             {
-                expiresIn: 3600,
+                expiresIn: '2d',
             },
             (err, token) => {
                 if (err) throw err;
@@ -77,7 +77,7 @@ export const loginUser = async (req, res) => {
             payload,
             process.env.JWT_SECRET,
             {
-                expiresIn: 3600,
+                expiresIn: '2d',
             },
             (err, token) => {
                 if (err) throw err;
