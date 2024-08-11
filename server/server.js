@@ -25,7 +25,7 @@ connectDB()
   .catch((err) => console.log("MONGO db connection failed", err));
 
 app.use(cors({
-  origin: 'https://blog-webapp-frontend.onrender.com/', // Replace with your frontend URL
+  origin: 'https://blog-webapp-frontend.onrender.com', // Replace with your frontend URL
   credentials: true,
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
