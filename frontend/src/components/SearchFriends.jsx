@@ -12,7 +12,7 @@ const SearchFriends = () => {
     console.log('Searching for:', searchTerm);
 
     try {
-      const response = await axios.get('https://blog-webapp-2rak.onrender.comapi/users/search', {
+      const response = await axios.get('https://blog-webapp-2rak.onrender.com/api/users/search', {
         params: { name: searchTerm }
       });
       
@@ -41,7 +41,7 @@ const SearchFriends = () => {
       console.log('Attempting to add friend with ID:', friendId);
       console.log('User ID:', user.id);
 
-      const response = await axios.post('https://blog-webapp-2rak.onrender.comapi/users/add-friend', {
+      const response = await axios.post('https://blog-webapp-2rak.onrender.com/api/users/add-friend', {
         userId: user.id, // Use id here
         friendId
       });

@@ -30,7 +30,7 @@ const CreatePost = () => {
     const token = JSON.parse(localStorage.getItem('token'));
 
     try {
-      const response = await axios.post('https://blog-webapp-2rak.onrender.comapi/posts/create', formData, {
+      const response = await axios.post('https://blog-webapp-2rak.onrender.com/api/posts/create', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
           'Authorization': `Bearer ${token}`

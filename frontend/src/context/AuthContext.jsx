@@ -34,7 +34,7 @@ export const AuthProvider = ({ children }) => {
     console.log('Login credentials:', credentials);
 
     try {
-      const response = await axios.post('https://blog-webapp-2rak.onrender.comapi/auth/login', credentials);
+      const response = await axios.post('https://blog-webapp-2rak.onrender.com/api/auth/login', credentials);
       console.log('Login response from backend:', response.data);
 
       if (response.data.token) {
@@ -55,7 +55,7 @@ export const AuthProvider = ({ children }) => {
     console.log('Registration credentials:', credentials);
 
     try {
-      const response = await axios.post('https://blog-webapp-2rak.onrender.comapi/auth/register', credentials);
+      const response = await axios.post('https://blog-webapp-2rak.onrender.com/api/auth/register', credentials);
       console.log('Registration response from backend:', response.data);
 
       if (response.data.token) {
