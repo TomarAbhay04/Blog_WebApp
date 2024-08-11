@@ -31,9 +31,9 @@ app.get('*', (req, res) => {
 
 // Other middleware and routes
 app.use(cors({
-  // origin: 'https://blog-webapp-frontend.onrender.com', // Replace with your actual frontend URL
-  // credentials: true,
-  // allowedHeaders: ['Content-Type', 'Authorization']
+  origin: 'https://blog-webapp-frontend.onrender.com', // Replace with your actual frontend URL
+  credentials: true,
+  allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
 connectDB();
