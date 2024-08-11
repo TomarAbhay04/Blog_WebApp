@@ -1,6 +1,8 @@
 // src/context/AuthContext.jsx
 import React, { createContext, useState, useEffect } from 'react';
 import axios from 'axios';
+// import { set } from 'mongoose';
+// import { set } from 'mongoose';
 
 export const AuthContext = createContext();
 
@@ -10,7 +12,9 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     const storedUser = localStorage.getItem('user');
+    const storedToken = JSON.parse(localStorage.getItem('token'));
     console.log('Stored user from localStorage:', storedUser);
+    console.log('Stored token from localStorage:', storedToken);
 
     if (storedUser) {
       try {
@@ -35,8 +39,9 @@ export const AuthProvider = ({ children }) => {
 
       if (response.data.token) {
         setUser(response.data.user);
-        // localStorage.setItem('token', JSON.stringify(response.data.token)); // Save token to localStorage
-        // console.log('Token stored in localStorage:', response.data.token);
+        setToken(response.data.token);
+        localStorage.setItem('token',JSON.stringify(response.data.token)); // Save token to localStorage
+        console.log('Token stored in localStorage:', response.data.token);
         localStorage.setItem('user', JSON.stringify(response.data.user));
         console.log('User data stored in localStorage:', response.data.user);
       }
@@ -55,6 +60,8 @@ export const AuthProvider = ({ children }) => {
 
       if (response.data.token) {
         setUser(response.data.user);
+        setToken(response.data.token);
+        localStorage.setItem('token', JSON.stringify(response.data.token)); // Save token to localStorage
         localStorage.setItem('user', JSON.stringify(response.data.user));
         console.log('User data stored in localStorage:', response.data.user);
       }
@@ -67,11 +74,13 @@ export const AuthProvider = ({ children }) => {
   const logout = () => {
     console.log('User logged out');
     setUser(null);
+    setToken(null);
     localStorage.removeItem('user');
+    localStorage.removeItem('token');
   };
 
   return (
-    <AuthContext.Provider value={{ user, loginUser, registerUser, logout }}>
+    <AuthContext.Provider value={{ user, loginUser, registerUser, logout, token }}>
       {children}
     </AuthContext.Provider>
   );

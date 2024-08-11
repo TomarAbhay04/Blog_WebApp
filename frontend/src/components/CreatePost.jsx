@@ -26,7 +26,7 @@ const CreatePost = () => {
     }
 
     // Get token from localStorage
-    const token = localStorage.getItem('token');
+    const token = JSON.parse(localStorage.getItem('token'));
     console.log('Token from localStorage:', token);
 
     try {
