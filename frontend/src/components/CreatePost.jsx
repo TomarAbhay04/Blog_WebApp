@@ -1,6 +1,8 @@
 // src/components/CreatePost.js
 import React, { useState } from 'react';
 import axios from 'axios';
+import '../styles/Createpost.css';
+
 
 const CreatePost = () => {
   const [title, setTitle] = useState('');
@@ -25,15 +27,13 @@ const CreatePost = () => {
       formData.append('files', file);
     }
 
-    // Get token from localStorage
     const token = JSON.parse(localStorage.getItem('token'));
-    console.log('Token from localStorage:', token);
 
     try {
       const response = await axios.post('http://localhost:4000/api/posts/create', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
-          'Authorization': `Bearer ${token}` // Assuming token is stored in localStorage
+          'Authorization': `Bearer ${token}`
         }
       });
       console.log('Response from backend:', response.data);
@@ -44,15 +44,47 @@ const CreatePost = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Title" required />
-      <textarea value={content} onChange={(e) => setContent(e.target.value)} placeholder="Content" required />
-      <textarea value={description} onChange={(e) => setDescription(e.target.value)} placeholder="Description" required />
-      <input type="text" value={location} onChange={(e) => setLocation(e.target.value)} placeholder="Location" required />
-      <input type="file" multiple onChange={handleFileChange} />
-      <button type="submit">Create Post</button>
+    <form className="create-post-form" onSubmit={handleSubmit}>
+      <input 
+        type="text" 
+        value={title} 
+        onChange={(e) => setTitle(e.target.value)} 
+        placeholder="Title" 
+        className="create-post-input" 
+        required 
+      />
+      <textarea 
+        value={content} 
+        onChange={(e) => setContent(e.target.value)} 
+        placeholder="Content" 
+        className="create-post-textarea" 
+        required 
+      />
+      <textarea 
+        value={description} 
+        onChange={(e) => setDescription(e.target.value)} 
+        placeholder="Description" 
+        className="create-post-textarea" 
+        required 
+      />
+      <input 
+        type="text" 
+        value={location} 
+        onChange={(e) => setLocation(e.target.value)} 
+        placeholder="Location" 
+        className="create-post-input" 
+        required 
+      />
+      <input 
+        type="file" 
+        multiple 
+        onChange={handleFileChange} 
+        className="create-post-file-input" 
+      />
+      <button type="submit" className="create-post-button">Create Post</button>
     </form>
   );
 };
 
 export default CreatePost;
+CreatePost.css

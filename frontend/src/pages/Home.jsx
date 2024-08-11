@@ -84,13 +84,21 @@ const Home = () => {
               <p className="post-content">{post.content}</p>
               <p className="post-description">{post.description}</p>
               <p className="post-location">{post.location}</p>
-              {post.imageUrl && (
-                <div className="post-images">
-                  {post.imageUrl.map((url, index) => (
-                    <img key={index} src={url} alt={`Post Image ${index + 1}`} className="post-image" />
-                  ))}
-                </div>
-              )}
+              <div className="post-media">
+                {post.imageUrl && post.imageUrl.length > 0 && (
+                  <div className="post-images">
+                    {post.imageUrl.map((url, index) => (
+                      <img key={index} src={url} alt={`Post Image ${index + 1}`} className="post-image" />
+                    ))}
+                  </div>
+                )}
+                {post.videoUrl && (
+                  <video controls className="post-video">
+                    <source src={post.videoUrl} type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                )}
+              </div>
               <div className="post-actions">
                 <button
                   className="like-button"

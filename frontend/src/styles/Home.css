@@ -36,14 +36,22 @@
   margin-bottom: 10px;
 }
 
-.post-images {
+.post-media {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
   margin-bottom: 15px;
 }
 
-.post-image {
+.post-image,
+.post-video {
+  max-width: 50%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.post-video {
+  display: block;
   max-width: 100%;
   height: auto;
   border-radius: 8px;
