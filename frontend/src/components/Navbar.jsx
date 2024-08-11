@@ -17,7 +17,7 @@ const Navbar = () => {
       <h2>My Blog</h2>
       <ul>
         <li><Link to="/">Home</Link></li>
-        <li><Link to="/friends">Friends</Link></li>
+        <li><Link to="/create-post">CreatePost</Link></li>
         <li><Link to="/search">Search Friends</Link></li>
         <li><Link to="/friends-list">Friends List</Link></li>
         {user ? (
