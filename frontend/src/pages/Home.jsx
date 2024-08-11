@@ -92,7 +92,7 @@ const Home = () => {
                     ))}
                   </div>
                 )}
-                {post.videoUrl && (
+                {post.videoUrl && post.videoUrl.length> 0 && (
                   <video controls className="post-video">
                     <source src={post.videoUrl} type="video/mp4" />
                     Your browser does not support the video tag.

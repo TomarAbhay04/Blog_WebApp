@@ -1,0 +1,129 @@
+.search-friends-container {
+  padding: 1rem;
+  max-width: 800px;
+  margin: auto;
+}
+
+.search-friends-container h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.search-input {
+  width: calc(100% - 110px);
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-right: 0.5rem;
+}
+
+.search-button {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  background-color: #ffcb05;
+  color: #333;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.search-button:hover {
+  background-color: #e6b800;
+}
+
+.error-message {
+  color: red;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.search-results {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 2.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 2rem;
+  /* margin: 0; */
+}
+
+.search-results li {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+
+  border-radius: 4px;
+  padding: 1.8rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  
+}
+
+/* Unique styling for Add Friend button */
+.add-friend-button {
+  background-color: #ffcb05 !important; /* Ensures button color is applied */
+  color: #333 !important; /* Ensures button text color is applied */
+  border: none !important;
+  padding: 0.25rem 0.5rem !important; /* Reduce padding for smaller button */
+  font-size: 0.75rem !important; /* Reduce font size */
+  cursor: pointer !important;
+  transition: background-color 0.3s ease !important;
+  border-radius: 4px !important;
+  margin-left: 0.5rem; /* Space between user info and button */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.add-friend-button:hover {
+  background-color: #e6b800 !important;
+}
+
+/* Media Queries for Responsiveness */
+
+/* For tablets and small screens */
+@media (max-width: 768px) {
+  .search-input {
+    width: calc(100% - 80px);
+  }
+
+  .search-results {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+
+  .search-friends-container h2 {
+    font-size: 1.6rem;
+  }
+
+  .search-button {
+    font-size: 0.9rem;
+    padding: 0.4rem 0.8rem;
+  }
+}
+
+/* For mobile screens */
+@media (max-width: 480px) {
+  .search-input {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 0.5rem;
+  }
+
+  .search-button {
+    width: 100%;
+    font-size: 0.9rem;
+    padding: 0.5rem;
+  }
+
+  .search-results {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+
+  .search-friends-container h2 {
+    font-size: 1.4rem;
+  }
+}

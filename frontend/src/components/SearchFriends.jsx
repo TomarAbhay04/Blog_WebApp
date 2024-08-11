@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
 import axios from 'axios';
 import { AuthContext } from '../context/AuthContext';
+import '../styles/SearchFriends.css';
 
 const SearchFriends = () => {
   const { user } = useContext(AuthContext);
@@ -31,7 +32,7 @@ const SearchFriends = () => {
   const handleAddFriend = async (friendId) => {
     console.log('Current user context:', user);
 
-    if (!user || !user.id) { // Use id here
+    if (!user || !user.id) {
       console.error('User ID is missing:', user);
       setError('User not logged in.');
       return;
@@ -42,7 +43,7 @@ const SearchFriends = () => {
       console.log('User ID:', user.id);
 
       const response = await axios.post('http://localhost:4000/api/users/add-friend', {
-        userId: user.id, // Use id here
+        userId: user.id,
         friendId
       });
 
@@ -55,24 +56,22 @@ const SearchFriends = () => {
   };
 
   return (
-    <div>
+    <div className="search-friends-container">
       <h2>Search Friends</h2>
       <input
         type="text"
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
         placeholder="Search by name"
+        className="search-input"
       />
-      <button onClick={handleSearch}>Search</button>
+      <button onClick={handleSearch} className="search-button">Search</button>
       {error && <div className="error-message">{error}</div>}
-      <ul>
+      <ul className="search-results">
         {searchResults.map(user => (
           <li key={user._id}>
             {user.name} ({user.email})
-            <button onClick={() => {
-              console.log('Friend ID clicked:', user._id);
-              handleAddFriend(user._id);
-            }}>
+            <button onClick={() => handleAddFriend(user._id)} className="add-friend-button">
               Add Friend
             </button>
           </li>

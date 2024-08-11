@@ -1,0 +1,146 @@
+/* src/components/Navbar.css */
+
+nav {
+  background-color: #333;
+  color: #fff;
+  padding: 0.5rem; /* Reduced padding to decrease height */
+  display: flex;
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
+  position: relative;
+}
+
+nav h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ffcb05; /* Highlighted color */
+  text-align: center;
+  flex: 1; /* Take up available space */
+}
+
+.menu-icon {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  position: absolute;
+  right: 1rem;
+}
+
+.menu-icon.open .line {
+  background-color: #ffcb05;
+}
+
+.menu-icon .line {
+  width: 25px;
+  height: 2px;
+  background-color: #fff;
+  margin: 3px 0;
+  transition: all 0.3s ease;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  justify-content: center; /* Center the nav links */
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  flex: 2; /* Take up more space than the heading */
+}
+
+ul.nav-links {
+  flex-direction: row;
+  transition: max-height 0.3s ease;
+  overflow: hidden;
+}
+
+ul.nav-links.active {
+  display: block;
+}
+
+ul li {
+  margin: 0 1rem;
+}
+
+ul li a {
+  color: #ffcb05;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+ul li a:hover {
+  color: #fff ; /* Highlighted color */
+}
+
+button {
+  background-color: #ffcb05; /* Highlighted color */
+  color: #333;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #e6b800;
+}
+
+@media screen and (max-width: 768px) {
+  nav {
+    padding: 0.5rem 0.5rem;
+  }
+
+  ul {
+    flex-direction: column;
+    align-items: flex-start;
+    max-height: 0;
+  }
+
+  ul.nav-links {
+    flex-direction: column;
+    max-height: 0;
+    display: none;
+  }
+
+  ul.nav-links.active {
+    display: flex;
+    max-height: 500px;
+  }
+
+  ul li {
+    margin: 0.5rem 0;
+  }
+
+  ul li a {
+    font-size: 1.2rem;
+  }
+
+  button {
+    font-size: 1.2rem;
+  }
+
+  .menu-icon {
+    display: flex;
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  nav h2 {
+    font-size: 1.2rem;
+  }
+
+  ul li a {
+    font-size: 1rem;
+  }
+
+  button {
+    font-size: 1rem;
+    padding: 0.4rem 0.8rem;
+  }
+}

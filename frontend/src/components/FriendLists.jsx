@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { AuthContext } from '../context/AuthContext';
 import axios from 'axios';
+import '../styles/FriendList.css'
 
 const FriendsList = () => {
   const { user } = useContext(AuthContext);
@@ -29,10 +30,8 @@ const FriendsList = () => {
     fetchFriends();
   }, [user]);
   
-  
-
   return (
-    <div>
+    <div className="friends-list-container">
       <h2>Your Friends</h2>
       {error && <div className="error-message">{error}</div>}
       <ul>

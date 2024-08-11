@@ -1,0 +1,79 @@
+/* General Styles */
+.friends-list-container {
+    padding: 1rem;
+    background-color: #f9f9f9;
+    color: #333;
+    height: 100vh;
+  }
+  
+  .friends-list-container h2 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 1rem;
+  }
+  
+  .friends-list-container .error-message {
+    color: #e74c3c;
+    background-color: #f8d7da;
+    padding: 0.5rem;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+  }
+  
+  .friends-list-container ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .friends-list-container li {
+    padding: 0.75rem 1rem; /* Increased padding for better readability */
+    border-radius: 4px;
+    background-color: #ffcb05; /* Yellow background color */
+    color: #333;
+    margin-bottom: 0.5rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .friends-list-container li:hover {
+    background-color: #e6b800; /* Darker yellow for hover effect */
+  }
+  
+  .friends-list-container li:last-child {
+    margin-bottom: 0;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .friends-list-container {
+      padding: 1rem;
+    }
+  
+    .friends-list-container h2 {
+      font-size: 1.25rem;
+      
+    }
+  
+    .friends-list-container li {
+      padding: 0.5rem 0.75rem;
+      font-size: 1rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .friends-list-container {
+      padding: 0.5rem;
+    }
+  
+    .friends-list-container h2 {
+      font-size: 1.125rem;
+    }
+  
+    .friends-list-container li {
+      padding: 0.5rem;
+      font-size: 0.875rem;
+    }
+  }
+  

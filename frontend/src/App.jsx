@@ -4,7 +4,6 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import AuthPage from "./pages/AuthPage";
-import FriendsPage from "./pages/FriendsPage";
 import { AuthProvider } from "./context/AuthContext";
 import SearchFriends from "./components/SearchFriends";
 import FriendsList from "./components/FriendLists";
