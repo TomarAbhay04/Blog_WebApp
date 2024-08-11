@@ -13,7 +13,7 @@ const FriendsList = () => {
   
       try {
         if (user && user.id) {
-          const response = await axios.get('http://localhost:4000/api/users/friends', {
+          const response = await axios.get('https://blog-webapp-2rak.onrender.comapi/users/friends', {
             params: { userId: user.id }
           });
           setFriends(response.data);
