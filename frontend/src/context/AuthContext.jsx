@@ -32,22 +32,21 @@ export const AuthProvider = ({ children }) => {
 
   const loginUser = async (credentials) => {
     console.log('Login credentials:', credentials);
-  
-    try {                                
+
+    try {
       const response = await axios.post('http://localhost:4000/api/auth/login', credentials);
       console.log('Login response from backend:', response.data);
-  
+
       if (response.data.token) {
         setUser(response.data.user);
         setToken(response.data.token);
-        localStorage.setItem('token', JSON.stringify(response.data.token)); // Save token to localStorage
+        localStorage.setItem('token',JSON.stringify(response.data.token)); // Save token to localStorage
         console.log('Token stored in localStorage:', response.data.token);
         localStorage.setItem('user', JSON.stringify(response.data.user));
         console.log('User data stored in localStorage:', response.data.user);
       }
     } catch (error) {
-      // Log detailed error information
-      console.error('Login error:', error.response ? error.response.data : error.message);
+      console.error('Login error:', error.response?.data || error.message);
       throw error;
     }
   };
