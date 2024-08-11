@@ -31,7 +31,7 @@ app.get('*', (req, res) => {
 
 // Other middleware and routes
 app.use(cors({
-  origin: 'https://blog-webapp-frontend.onrender.com', // Replace with your actual frontend URL
+  origin: 'http://localhost:5173', // Replace with your actual frontend URL
   credentials: true,
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
@@ -42,11 +42,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-app.use(express.static(path.join(__dirname, '../frontend/dist')));
+// app.use(express.static(path.join(__dirname, '../frontend/dist')));
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../frontend/dist', 'index.html'));
-} );
+// app.get('*', (req, res) => {
+//   res.sendFile(path.join(__dirname, '../frontend/dist', 'index.html'));
+// } );
 
 app.use(session({
   secret: process.env.SESSION_SECRET,

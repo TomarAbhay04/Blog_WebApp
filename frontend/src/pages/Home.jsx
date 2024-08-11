@@ -11,7 +11,7 @@ const Home = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await axios.get('https://blog-webapp-2rak.onrender.com/api/posts/');
+        const response = await axios.get('http://localhost:4000/api/posts/');
         setPosts(response.data);
         // Initialize likedPosts from response if possible
         const likedPostIds = response.data
@@ -30,7 +30,7 @@ const Home = () => {
     try {
       if (likedPosts.has(postId)) {
         // If already liked, send request to unlike
-        await axios.delete(`https://blog-webapp-2rak.onrender.com/api/posts/${postId}/like`, {
+        await axios.delete(`http://localhost:4000/api/posts/${postId}/like`, {
           headers: { 'Authorization': `Bearer ${JSON.parse(localStorage.getItem('token'))}` }
         });
         setLikedPosts(prev => {
@@ -40,7 +40,7 @@ const Home = () => {
         });
       } else {
         // If not liked, send request to like
-        await axios.post(`https://blog-webapp-2rak.onrender.com/api/posts/${postId}/like`, {}, {
+        await axios.post(`http://localhost:4000/api/posts/${postId}/like`, {}, {
           headers: { 'Authorization': `Bearer ${JSON.parse(localStorage.getItem('token'))}` }
         });
         setLikedPosts(prev => new Set(prev).add(postId));
@@ -56,7 +56,7 @@ const Home = () => {
 
   const handleCommentSubmit = async (postId) => {
     try {
-      const response = await axios.post(`https://blog-webapp-2rak.onrender.com/api/posts/${postId}/comment`, {
+      const response = await axios.post(`http://localhost:4000/api/posts/${postId}/comment`, {
         content: newComment,
         parent: null
       }, {
