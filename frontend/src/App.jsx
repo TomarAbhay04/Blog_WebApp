@@ -1,17 +1,17 @@
 // src/App.jsx
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Navbar from './components/Navbar';
-import Home from './pages/Home';
-import AuthPage from './pages/AuthPage';
-import FriendsPage from './pages/FriendsPage';
-import { AuthProvider } from './context/AuthContext';
-import SearchFriends from './components/SearchFriends';
-import FriendsList from './components/FriendLists';
-import CreatePost from './components/CreatePost';
-import PostDetail from './components/PostDetail';
-import PrivateRoute from './components/PrivateRoute';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Home from "./pages/Home";
+import AuthPage from "./pages/AuthPage";
+import FriendsPage from "./pages/FriendsPage";
+import { AuthProvider } from "./context/AuthContext";
+import SearchFriends from "./components/SearchFriends";
+import FriendsList from "./components/FriendLists";
+import CreatePost from "./components/CreatePost";
+import PostDetail from "./components/PostDetail";
+import PrivateRoute from "./components/PrivateRoute";
+import "./App.css";
 
 function App() {
   return (
