@@ -1,6 +1,6 @@
 // src/App.jsx
 import React from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, useLocation } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import AuthPage from "./pages/AuthPage";
@@ -16,55 +16,66 @@ function App() {
   return (
     <AuthProvider>
       <Router>
-        <Navbar />
-        <div className="container">
-          <Routes>
-            <Route path="/auth" element={<AuthPage />} />
-            <Route
-              path="/"
-              element={
-                <PrivateRoute>
-                  <Home />
-                </PrivateRoute>
-              }
-            />
-            <Route
-              path="/create-post"
-              element={
-                <PrivateRoute>
-                  <CreatePost />
-                </PrivateRoute>
-              }
-            />
-            <Route
-              path="/search"
-              element={
-                <PrivateRoute>
-                  <SearchFriends />
-                </PrivateRoute>
-              }
-            />
-            <Route
-              path="/friends-list"
-              element={
-                <PrivateRoute>
-                  <FriendsList />
-                </PrivateRoute>
-              }
-            />
-            <Route
-              path="/post/:postId"
-              element={
-                <PrivateRoute>
-                  <PostDetail />
-                </PrivateRoute>
-              }
-            />
-            <Route path="*" element={<h1>Not Found</h1>} />
-          </Routes>
-        </div>
+        <AppRoutes />
       </Router>
     </AuthProvider>
+  );
+}
+
+function AppRoutes() {
+  const location = useLocation();
+  const showNavbar = !['/auth'].includes(location.pathname);
+
+  return (
+    <>
+      {showNavbar && <Navbar />}
+      <div className="container">
+        <Routes>
+          <Route path="/auth" element={<AuthPage />} />
+          <Route
+            path="/"
+            element={
+              <PrivateRoute>
+                <Home />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/create-post"
+            element={
+              <PrivateRoute>
+                <CreatePost />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/search"
+            element={
+              <PrivateRoute>
+                <SearchFriends />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/friends-list"
+            element={
+              <PrivateRoute>
+                <FriendsList />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/post/:postId"
+            element={
+              <PrivateRoute>
+                <PostDetail />
+              </PrivateRoute>
+            }
+          />
+          <Route path="*" element={<h1>Not Found</h1>} />
+        </Routes>
+      </div>
+    </>
   );
 }
 
